@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" >
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление мебели</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <div th:insert="headers/head :: osnova"></div>
+</head>
+<body>
+<form th:object="${furniture}" method="post">
+    <label>
+        <input th:field="*{type}" name="type" type="text" placeholder="Тип мебели" style="margin:10px">
+        <div th:if="${#fields.hasErrors('type')}" th:errors="*{type}" style="color: red"></div><br>
+
+        <input th:field="*{name}" name="name" type="text" placeholder="Название" style="margin:10px">
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: red"></div><br>
+
+        <input th:field="*{size}" name="size" type="text" placeholder="Размер" style="margin:10px">
+        <div th:if="${#fields.hasErrors('size')}" th:errors="*{size}" style="color: red"></div><br>
+
+        <input th:field="*{color}" name="color" type="text"  placeholder="Цвет" style="margin:10px">
+        <div th:if="${#fields.hasErrors('color')}" th:errors="*{color}" style="color: red"></div><br>
+
+        <input th:field="*{releaseDate}" name="releaseDate" type="text" placeholder="гггг-мм-дд" style="margin:10px">
+        <div th:if="${#fields.hasErrors('releaseDate')}" th:errors="*{releaseDate}" style="color: red"></div><br><br>
+
+        <p style="margin:10px">
+            <select  name="design" style="width:190px">
+        <div th:each="element : ${dopinformation}">
+            <option th:text="${element.design}"></option>
+        </div><br>
+        </select>
+        </p>
+        <p style="margin:10px">
+            <select  name="meaning" style="width:190px">
+        <div th:each="element : ${premise}">
+            <option th:text="${element.meaning}"></option>
+        </div><br>
+        </select>
+        </p>
+
+        <input style="margin:10px" type="submit" value="Добавить Мебель">
+    </label>
+</form>
+
+<a style="margin:10px" href="/furniture">Отмена</a>
+</body>
+</html>
