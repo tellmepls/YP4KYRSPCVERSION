@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Подробнее</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <div th:insert="headers/head :: osnova"></div>
+    <a class="btn" style="background:lightblue"  th:href="'/furniture'" >Назад</a>
+</head>
+
+<body>
+<div>
+    <div th:each="el: ${furniture}" >
+        <h2 th:text="'ID: ' + ${el.getId()}"></h2>
+        <p th:text="'Тип мебели: ' + ${el.getType()}"></p>
+        <p th:text="'Название: ' + ${el.getName}"></p>
+        <p th:text="'Размер: ' + ${el.getsize()}"></p>
+        <p th:text="'Цвет: ' + ${el.getcolor()}"></p>
+        <p th:text="'Год выпуска: ' + ${el.getreleaseDate()}"></p>
+        <div th:if="${el.DopInformation}">
+            <p th:text="'Дизайн: ' + ${el.getDesign()}"></p>
+            <p th:text="'Кол-во ящиков: ' + ${el.getnumberOfLockers()}"></p>
+        </div>
+        <div th:if="${el.premise}">
+            <p th:text="'Назначение: ' + ${el.getmeaning()}"></p>
+            <p th:text="'Квадратов: ' + ${el.getsquare()}"></p>
+        </div>
+        <a class = "btn" style="background:lightblue" th:href="'/furniture/furnitureEdit/' + ${el.getId()}" >Редактирование</a>
+        <a class = "btn"   style="background:lightblue; margin-left:10px" th:href="'/furniture/delete/' + ${el.getId()}" >Удаление</a>
+    </div>
+    <br>
+
+</div>
+</body>
+</html>
