@@ -1,0 +1,23 @@
+<head xmlns:th="http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <div th:fragment="osnova">
+        <header class="d-flex justify-content-center py-3">
+            <ul class="nav nav-pills">
+                <li class="nav-item" ><a href="/furniture" class="nav-link active" aria-current="page">Мебель</a></li>
+                <li class="nav-item" style="margin-left: 20px"><a href="https://t.me/ifyouwannadietellme" class="nav-link active" aria-current="page">TG</a></li>
+                <li class="nav-item" style="margin-left: 20px"><a href="/furniture/dopinformationADD" class="nav-link active" aria-current="page">ДопИнфо</a></li>
+                <li class="nav-item" style="margin-left: 20px"><a href="/furniture/PremiseADD" class="nav-link active" aria-current="page">Помещение</a></li>
+                <li class="nav-item" style="margin-left: 20px"><a href="/furniture/shopADD" class="nav-link active" aria-current="page">ДобавитьМаг</a></li>
+                <li class="nav-item" style="margin-left: 20px"><a href="/furniture/shop_furnitureADD" class="nav-link active" aria-current="page">ДобавитьМебВМагазин</a></li>
+                <li class="nav-item" style="margin-left: 20px"><a href="/furniture/shops" class="nav-link active" aria-current="page">Shop</a></li>
+                <li class="nav-item" style="margin-left: 20px"><a href="/furniture/admin" class="nav-link active" aria-current="page">AdminPanel</a></li>
+                <li style="margin-left: 300px"><form th:action="@{/logout}" method="post">
+                    <input class="nav-link active" type="submit" value="Выйти"/>
+                </form></li>
+
+                <li class="nav-item" style="margin-left: 20px"><a href="/registration" class="nav-link active" aria-current="page">Регистрация</a></li>
+                <li class="nav-item" style="margin-left: 20px"><a href="/login" class="nav-link active" aria-current="page">Авторизация</a></li>
+            </ul>
+        </header>
+    </div>
+</head>
